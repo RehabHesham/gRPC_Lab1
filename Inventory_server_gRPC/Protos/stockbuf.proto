@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option csharp_namespace = "Inventory_server_gRPC.Protos";
+
+service StockUpdate{
+	rpc SendMessage(OrderData)returns(ProcessStatus);
+}
+
+
+message OrderData{
+	repeated Product products = 1;
+	bool Undo = 2;
+}
+
+message Product{
+	int32 productId = 1;
+	int32 productQuantity = 2;
+}
+
+message ProcessStatus{
+	bool sucess = 1;
+	double orderCost = 2;
+}

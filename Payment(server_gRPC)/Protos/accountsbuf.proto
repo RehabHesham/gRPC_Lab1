@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option csharp_namespace = "Payment_server_gRPC_.Protos";
+
+
+service AccountUpdate{
+	rpc SendMessage(AccountData)returns(ProcessStatus);
+}
+
+message AccountData{
+	int32 userId = 1;
+	double orderCost = 2;
+}
+
+message ProcessStatus{
+	bool sucess = 1;
+}
+

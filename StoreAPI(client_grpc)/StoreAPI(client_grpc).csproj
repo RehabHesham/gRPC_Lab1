@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>StoreAPI_client_grpc_</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Grpc.AspNetCore" Version="2.46.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Protos\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Inventory_server_gRPC\Inventory_server_gRPC.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="..\Inventory_server_gRPC\Protos\stockbuf.proto" GrpcServices="Client">
+      <Link>Protos\stockbuf.proto</Link>
+    </Protobuf>
+    <Protobuf Include="..\Payment(server_gRPC)\Protos\accountsbuf.proto" GrpcServices="Client">
+      <Link>Protos\accountsbuf.proto</Link>
+    </Protobuf>
+  </ItemGroup>
+
+</Project>
