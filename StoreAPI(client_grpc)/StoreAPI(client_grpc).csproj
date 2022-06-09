@@ -8,12 +8,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Grpc.AspNetCore" Version="2.46.0" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    <Compile Remove="Services\APIOrderService.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Protos\" />
+    <None Remove="Protos\Orderbuf.proto" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Grpc.AspNetCore" Version="2.46.0" />
+    <PackageReference Include="Grpc.AspNetCore.Web" Version="2.46.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,6 +32,7 @@
     <Protobuf Include="..\Payment(server_gRPC)\Protos\accountsbuf.proto" GrpcServices="Client">
       <Link>Protos\accountsbuf.proto</Link>
     </Protobuf>
+    <Protobuf Include="Protos\Orderbuf.proto" GrpcServices="Server" />
   </ItemGroup>
 
 </Project>
